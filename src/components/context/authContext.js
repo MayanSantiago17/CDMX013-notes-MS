@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import {createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth'
+import {createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from 'firebase/auth'
 import { auth } from '../../firebase/config'
 
 
@@ -15,6 +15,8 @@ export const useAuth = () => {
 // paso propiedad children
 export function AuthProvider({ children }) { // Auth provider me deja utilizar en cualquier componente el valor de user, pero quien contiene el valor es context
   const [user, setUser] = useState(null);
+  // creo un estado mientras espera la respuesta de firebase sobre el estado del usuario 
+  const [loading, setLoading] = useState(true)
   // a Provider se le pasa este objeto signup
   // para poder utilizarlo se exporta
   const signup = (email, password) => {
@@ -23,13 +25,16 @@ export function AuthProvider({ children }) { // Auth provider me deja utilizar e
   const login = (email, password) => 
      signInWithEmailAndPassword(auth, email, password);
 
+  const logout = () => signOut(auth);
+
   useEffect(() => {
     onAuthStateChanged(auth, currentUser => {
       setUser(currentUser);
+      setLoading(false)
     } )
   }, [])
 
-  return <authContext.Provider value={{ signup, login, user }}>{children}</authContext.Provider>
+  return <authContext.Provider value={{ signup, login, user, logout, loading }}>{children}</authContext.Provider>
 };
   // este provider sierve para colocar adentro mis componentes
   // all lo que tenga este provider los componentes hijos van a poder acceder a el con su propiedad children
