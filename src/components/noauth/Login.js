@@ -2,7 +2,7 @@ import './Login.css'
 import logo from '../images/notes-logo.png';
 import { useState } from "react";
 import { useAuth } from "../context/authContext";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 export default function Login () {
@@ -68,6 +68,8 @@ export default function Login () {
           <button className="btn-login" type="submit">
             Login
           </button>
+
+          <p className='button-to-register'>Don`t have an Account? <Link to='/Register' className='b-to-Register'> Register </Link> </p>
         </form>
       </section>
         </div>
