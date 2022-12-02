@@ -41,7 +41,7 @@ export default function Login () {
         }
       };
     return (
-        <div className="grid">
+        <div className="grid-login">
             <header className='login-header'>
                 <img src={logo} className='logo-login' alt='logo'/>
             </header>

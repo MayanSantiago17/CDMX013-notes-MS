@@ -1,0 +1,7 @@
+.grid{
+    background-color: #1E1E1E;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(4, 10px [row-start] 190px [row-end]) 10px;
+    grid-template-rows: repeat(4, 10px [row-start] 280px [row-end]) 10px;
+}

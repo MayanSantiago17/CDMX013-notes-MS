@@ -33,7 +33,7 @@ export function AuthProvider({ children }) { // Auth provider me deja utilizar e
       setLoading(false)
     } )
   }, [])
-
+ 
   return <authContext.Provider value={{ signup, login, user, logout, loading }}>{children}</authContext.Provider>
 };
   // este provider sierve para colocar adentro mis componentes
