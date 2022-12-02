@@ -40,7 +40,7 @@ export default function Register() {
   };
 
   return (
-    <div className="grid">
+    <div className="grid-register">
       <header className="login-header">
         <img src={logo} className="logo-login" alt="logo" />
       </header>

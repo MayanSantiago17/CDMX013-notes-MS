@@ -1,0 +1,15 @@
+
+
+.welcome-header{
+    grid-column: span 4;
+    grid-row: span 1;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    margin-top:auto;
+}
+.welcome-user{
+    font-size: 18px;
+    width: 35vw;
+    color: darkkhaki;
+}

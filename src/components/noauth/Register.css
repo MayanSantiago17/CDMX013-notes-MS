@@ -10,7 +10,7 @@
     height: 40vmin;
     pointer-events: none; 
 }
-.grid {
+.grid-register {
     background-color: #1E1E1E;
     min-height: 100vh;
     display: grid;
